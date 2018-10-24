@@ -21,20 +21,51 @@ class Spaceship extends Floater
 	public void setPointDirection(int degrees) {myPointDirection = degrees;} 
 	public double getPointDirection() {return (double)myPointDirection;}
 
-	// public void accelerate (double dAmount)   
-	// {          
-	// 	//convert the current direction the floater is pointing to radians    
-	// 	double dRadians =myPointDirection*(Math.PI/180);     
-	// 	//change coordinates of direction of travel    
-	// 	myDirectionX += ((dAmount) * Math.cos(dRadians));    
-	// 	myDirectionY += ((dAmount) * Math.sin(dRadians)); 
-	// 	if(myDirectionY > 10.0) {
-	// 		print("stopped");
-	// 		myDirectionY = 10.0;
-	// 	}   
-	// 	if(myDirectionX > 10.0) {
-	// 		print("stopped");
-	// 		myDirectionX = 10.0;
-	// 	}    
-	// }   	
+	public void move ()   //move the floater in the current direction of travel
+	{      
+		if (move)
+			accelerate(1);
+		if (turnL)
+			turn(-5);
+		if (turnR)
+			turn(5);
+		//change the x and y coordinates by myDirectionX and myDirectionY       
+		myCenterX += myDirectionX;    
+		myCenterY += myDirectionY;     
+
+		//wrap around screen    
+		if(myCenterX >width)
+		{     
+		  myCenterX = 0;    
+		}    
+		else if (myCenterX<0)
+		{     
+		  myCenterX = width;    
+		}    
+		if(myCenterY >height)
+		{    
+		  myCenterY = 0;    
+		} 
+
+		else if (myCenterY < 0)
+		{     
+		  myCenterY = height;    
+		}   
+	}   
+	public void accelerate (double dAmount)   
+	{          
+		//convert the current direction the floater is pointing to radians    
+		double dRadians =myPointDirection*(Math.PI/180);     
+		//change coordinates of direction of travel    
+		myDirectionX += ((dAmount) * Math.cos(dRadians));    
+		myDirectionY += ((dAmount) * Math.sin(dRadians)); 
+		if(myDirectionY > 10.0) {
+			print("stopped");
+			myDirectionY = 10.0;
+		}   
+		if(myDirectionX > 10.0) {
+			print("stopped");
+			myDirectionX = 10.0;
+		}    
+	}   	
 }
