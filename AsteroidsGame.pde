@@ -20,6 +20,8 @@ public void draw()
   ship.move();
   ship.show();
   showStars();
+  text("" + ship.getDirectionX(), 10, 10);
+  text("" + ship.getDirectionY(), 10, 20);
 }
 
 public void showStars() {
@@ -29,13 +31,13 @@ public void showStars() {
 }
 public void keyPressed() {
   if(key == 'w') {
-  	ship.accelerate(1);
+    ship.move = true;
   }
   if(key == 'a') {
-    ship.turn(5);
+    ship.turnR = true;
   }
   if(key == 'd') {
-    ship.turn(5);
+    ship.turnL = true;
   }
   if(key =='e') {
   	// go to hyperspace
@@ -43,3 +45,16 @@ public void keyPressed() {
   	ship.setY((int)(Math.random()*height));
   }
 }
+
+public void keyReleased() {
+  if(key == 'w') {
+    ship.move = false;
+  }
+  if(key == 'a') {
+    ship.turnR = false;
+  }
+  if(key == 'd') {
+    ship.turnL = false;
+  }
+}
+
