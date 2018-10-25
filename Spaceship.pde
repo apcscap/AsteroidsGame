@@ -24,7 +24,7 @@ class Spaceship extends Floater
 	public void move ()   //move the floater in the current direction of travel
 	{      
 		if (move)
-			accelerate(1);
+			accelerate(0.5);
 		if (turnL)
 			turn(5);
 		if (turnR)
