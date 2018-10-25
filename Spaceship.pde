@@ -26,9 +26,9 @@ class Spaceship extends Floater
 		if (move)
 			accelerate(1);
 		if (turnL)
-			turn(-5);
-		if (turnR)
 			turn(5);
+		if (turnR)
+			turn(-5);
 		//change the x and y coordinates by myDirectionX and myDirectionY       
 		myCenterX += myDirectionX;    
 		myCenterY += myDirectionY;     
@@ -55,17 +55,33 @@ class Spaceship extends Floater
 	public void accelerate (double dAmount)   
 	{          
 		//convert the current direction the floater is pointing to radians    
-		double dRadians =myPointDirection*(Math.PI/180);     
-		//change coordinates of direction of travel    
-		myDirectionX += ((dAmount) * Math.cos(dRadians));    
-		myDirectionY += ((dAmount) * Math.sin(dRadians)); 
-		if(myDirectionY > 10.0) {
-			print("stopped");
-			myDirectionY = 10.0;
-		}   
-		if(myDirectionX > 10.0) {
-			print("stopped");
-			myDirectionX = 10.0;
-		}    
+		double dRadians = myPointDirection*(Math.PI/180);  
+		//change coordinates of direction of travel
+		if(myDirectionX < 5 && myDirectionX >= 0) {
+			myDirectionX += ((dAmount) * Math.cos(dRadians)); 
+		} else if(myDirectionX > 0){
+			if((dAmount * Math.cos(dRadians)) < 0) {
+			myDirectionX += ((dAmount) * Math.cos(dRadians));
+			}
+		} else if(myDirectionX > -5 && myDirectionX <= 0) {
+			myDirectionX += ((dAmount) * Math.cos(dRadians));
+		} else if(myDirectionX < 0) {
+			if((dAmount * Math.cos(dRadians)) > 0) {
+			myDirectionX += ((dAmount) * Math.cos(dRadians));
+			}
+		}
+		if(myDirectionY < 5 && myDirectionY >= 0) {
+			myDirectionY += ((dAmount) * Math.sin(dRadians)); 
+		} else if(myDirectionY > 0){
+			if((dAmount * Math.sin(dRadians)) < 0) {
+			myDirectionY += ((dAmount) * Math.sin(dRadians));
+			}
+		} else if(myDirectionY > -5 && myDirectionY <= 0) {
+			myDirectionY += ((dAmount) * Math.sin(dRadians));
+		} else if(myDirectionY < 0) {
+			if((dAmount * Math.sin(dRadians)) > 0) {
+			myDirectionY += ((dAmount) * Math.sin(dRadians));
+			}
+		}
 	}   	
 }
