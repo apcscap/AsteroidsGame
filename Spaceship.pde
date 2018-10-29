@@ -31,7 +31,7 @@ class Spaceship extends Floater
 			turn(-5);
 		//change the x and y coordinates by myDirectionX and myDirectionY       
 		myCenterX += myDirectionX;    
-		myCenterY += myDirectionY; 
+		myCenterY += myDirectionY;
 
 		//wrap around screen    
 		if(myCenterX >width)

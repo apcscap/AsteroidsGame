@@ -1,6 +1,7 @@
 //your variable declarations here
 Spaceship ship;
 Star[] stars;
+Asteroid a;
 public void setup() 
 {
   //your code here
@@ -11,7 +12,7 @@ public void setup()
   for(int i=0;i<stars.length;i++) {
   	stars[i] = new Star();
   }
-
+  a = new Asteroid();
 }
 public void draw() 
 {
@@ -22,6 +23,8 @@ public void draw()
   showStars();
   text("" + ship.getDirectionX(), 10, 10);
   text("" + ship.getDirectionY(), 10, 20);
+  a.move();
+  a.show();
 }
 
 public void showStars() {
