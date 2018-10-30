@@ -34,13 +34,13 @@ public void showStars() {
 }
 public void keyPressed() {
   if(key == 'w') {
-    ship.move = true;
+    ship.setMove(true);
   }
   if(key == 'a') {
-    ship.turnR = true;
+    ship.setTurnR(true);
   }
   if(key == 'd') {
-    ship.turnL = true;
+    ship.setTurnL(true);
   }
   if(key =='e') {
   	// go to hyperspace
@@ -51,13 +51,13 @@ public void keyPressed() {
 
 public void keyReleased() {
   if(key == 'w') {
-    ship.move = false;
+    ship.setMove(false);
   }
   if(key == 'a') {
-    ship.turnR = false;
+    ship.setTurnR(false);
   }
   if(key == 'd') {
-    ship.turnL = false;
+    ship.setTurnL(false);
   }
 }
 

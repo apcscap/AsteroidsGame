@@ -1,6 +1,6 @@
 class Spaceship extends Floater  
 {   
-	public boolean turnR, turnL, move; // change to privte variables later
+	private boolean turnR, turnL, move;
 	public Spaceship() {
 		corners = 4;
 		xCorners = new int[] {-8, 16, -8, -2};
@@ -20,6 +20,12 @@ class Spaceship extends Floater
 	public double getDirectionY() {return (double)myDirectionY;}
 	public void setPointDirection(int degrees) {myPointDirection = degrees;} 
 	public double getPointDirection() {return (double)myPointDirection;}
+	public boolean getTurnR() {return turnR;}
+	public void setTurnR(boolean b) {turnR = b;}
+	public boolean getTurnL() {return turnL;}
+	public void setTurnL(boolean b) {turnL = b;}
+	public boolean getMove() {return move;}
+	public void setMove(boolean b) {move = b;}
 
 	public void move ()   { //move the floater in the current direction of travel
 		if (move)
