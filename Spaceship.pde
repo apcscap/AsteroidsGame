@@ -28,34 +28,12 @@ class Spaceship extends Floater
 	public boolean getMove() {return move;}
 	public void setMove(boolean b) {move = b;}
 
-	@Override
 	public void move() { //move the floater in the current direction of travel
 		if (move) {accelerate(0.5);}
 		if (turnL) {turn(5);}
 		if (turnR) {turn(-5);}
-		//change the x and y coordinates by myDirectionX and myDirectionY       
-		myCenterX += myDirectionX;    
-		myCenterY += myDirectionY;
-
-		//wrap around screen    
-		if(myCenterX >width)
-		{     
-		  myCenterX = 0;    
-		}    
-		else if (myCenterX<0)
-		{     
-		  myCenterX = width;    
-		}    
-		if(myCenterY >height)
-		{    
-		  myCenterY = 0;    
-		} 
-
-		else if (myCenterY < 0)
-		{     
-		  myCenterY = height;    
-		}   
-	}   
+		super.move();
+	}
 	public void accelerate (double dAmount) {          
 		//convert the current direction the floater is pointing to radians    
 		double dRadians = myPointDirection*(Math.PI/180);  
