@@ -28,6 +28,7 @@ class Spaceship extends Floater
 	public boolean getMove() {return move;}
 	public void setMove(boolean b) {move = b;}
 
+	@Override
 	public void move() { //move the floater in the current direction of travel
 		if (move) {accelerate(0.5);}
 		if (turnL) {turn(5);}
