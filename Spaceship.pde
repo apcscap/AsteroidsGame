@@ -9,6 +9,7 @@ class Spaceship extends Floater
 		myCenterX = myCenterY = 250;
 		myDirectionX = myDirectionY = 0.0;
 		myPointDirection = 0.0;
+		turnR = turnL = move = false;
 	}
 	public void setX(int x) {myCenterX = x;}
 	public int getX() {return (int)myCenterX;}
@@ -27,13 +28,10 @@ class Spaceship extends Floater
 	public boolean getMove() {return move;}
 	public void setMove(boolean b) {move = b;}
 
-	public void move ()   { //move the floater in the current direction of travel
-		if (move)
-			accelerate(0.5);
-		if (turnL)
-			turn(5);
-		if (turnR)
-			turn(-5);
+	public void move() { //move the floater in the current direction of travel
+		if (move) {accelerate(0.5);}
+		if (turnL) {turn(5);}
+		if (turnR) {turn(-5);}
 		//change the x and y coordinates by myDirectionX and myDirectionY       
 		myCenterX += myDirectionX;    
 		myCenterY += myDirectionY;
@@ -57,8 +55,7 @@ class Spaceship extends Floater
 		  myCenterY = height;    
 		}   
 	}   
-	public void accelerate (double dAmount)   
-	{          
+	public void accelerate (double dAmount) {          
 		//convert the current direction the floater is pointing to radians    
 		double dRadians = myPointDirection*(Math.PI/180);  
 		//change coordinates of direction of travel
