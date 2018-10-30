@@ -42,26 +42,26 @@ class Spaceship extends Floater
 			myDirectionX += ((dAmount) * Math.cos(dRadians)); 
 		} else if(myDirectionX > 0){
 			if((dAmount * Math.cos(dRadians)) < 0) {
-			myDirectionX += ((dAmount) * Math.cos(dRadians));
+				myDirectionX += ((dAmount) * Math.cos(dRadians));
 			}
 		} else if(myDirectionX > -5 && myDirectionX <= 0) {
 			myDirectionX += ((dAmount) * Math.cos(dRadians));
 		} else if(myDirectionX < 0) {
 			if((dAmount * Math.cos(dRadians)) > 0) {
-			myDirectionX += ((dAmount) * Math.cos(dRadians));
+				myDirectionX += ((dAmount) * Math.cos(dRadians));
 			}
 		}
 		if(myDirectionY < 5 && myDirectionY >= 0) {
 			myDirectionY += ((dAmount) * Math.sin(dRadians)); 
 		} else if(myDirectionY > 0){
 			if((dAmount * Math.sin(dRadians)) < 0) {
-			myDirectionY += ((dAmount) * Math.sin(dRadians));
+				myDirectionY += ((dAmount) * Math.sin(dRadians));
 			}
 		} else if(myDirectionY > -5 && myDirectionY <= 0) {
 			myDirectionY += ((dAmount) * Math.sin(dRadians));
 		} else if(myDirectionY < 0) {
 			if((dAmount * Math.sin(dRadians)) > 0) {
-			myDirectionY += ((dAmount) * Math.sin(dRadians));
+				myDirectionY += ((dAmount) * Math.sin(dRadians));
 			}
 		}
 	}   	
