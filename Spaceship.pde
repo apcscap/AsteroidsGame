@@ -1,6 +1,6 @@
 class Spaceship extends Floater  
 {   
-	private boolean turnR, turnL, move;
+	private boolean turnR, turnL, isMoving;
 	public Spaceship() {
 		corners = 4;
 		xCorners = new int[] {-8, 16, -8, -2};
@@ -25,15 +25,15 @@ class Spaceship extends Floater
 	public void setTurnR(boolean b) {turnR = b;}
 	public boolean getTurnL() {return turnL;}
 	public void setTurnL(boolean b) {turnL = b;}
-	public boolean getMove() {return move;}
-	public void setMove(boolean b) {move = b;}
+	public boolean getMove() {return isMoving;}
+	public void setMove(boolean b) {isMoving = b;}
 
-	// public void move() { //move the floater in the current direction of travel
-	// 	if (move) {accelerate(0.5);}
-	// 	if (turnL) {turn(5);}
-	// 	if (turnR) {turn(-5);}
-	// 	super.move();
-	// }
+	public void move() { //move the floater in the current direction of travel
+		if (isMoving) {accelerate(0.5);}
+		if (turnL) {turn(5);}
+		if (turnR) {turn(-5);}
+		super.move();
+	}
 	public void accelerate (double dAmount) {          
 		//convert the current direction the floater is pointing to radians    
 		double dRadians = myPointDirection*(Math.PI/180);  
