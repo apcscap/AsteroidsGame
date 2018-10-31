@@ -28,12 +28,12 @@ class Spaceship extends Floater
 	public boolean getMove() {return move;}
 	public void setMove(boolean b) {move = b;}
 
-	public void move() { //move the floater in the current direction of travel
-		if (move) {accelerate(0.5);}
-		if (turnL) {turn(5);}
-		if (turnR) {turn(-5);}
-		super.move();
-	}
+	// public void move() { //move the floater in the current direction of travel
+	// 	if (move) {accelerate(0.5);}
+	// 	if (turnL) {turn(5);}
+	// 	if (turnR) {turn(-5);}
+	// 	super.move();
+	// }
 	public void accelerate (double dAmount) {          
 		//convert the current direction the floater is pointing to radians    
 		double dRadians = myPointDirection*(Math.PI/180);  
