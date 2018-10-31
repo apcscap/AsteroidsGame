@@ -11,10 +11,10 @@ class Asteroid extends Floater {
     myColor = 255;
     myCenterX = (int)(Math.random()*500);
     myCenterY = (int)(Math.random()*500);
-    myDirectionX = (Math.random()*8)-4;
-    myDirectionY = (Math.random()*8)-4;
+    myDirectionX = (Math.random()*4)-2;
+    myDirectionY = (Math.random()*4)-2;
     myPointDirection = Math.random()*360;
-    myTurnDirection = Math.random()-0.5;
+    myTurnDirection = (Math.random()*2)-1;
   }
   Asteroid() {
     myHealth = 3;
@@ -25,10 +25,10 @@ class Asteroid extends Floater {
     myColor = 255;
     myCenterX = (int)(Math.random()*500);
     myCenterY = (int)(Math.random()*500);
-    myDirectionX = (Math.random()*8)-4;
-    myDirectionY = (Math.random()*8)-4;
+    myDirectionX = (Math.random()*4)-2;
+    myDirectionY = (Math.random()*4)-2;
     myPointDirection = Math.random()*360;
-    myTurnDirection = Math.random();
+    myTurnDirection = (Math.random()*2)-1;
   }
   public void setX(int x) {myCenterX = x;}
   public int getX() {return (int)myCenterX;}

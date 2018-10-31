@@ -1,7 +1,7 @@
 //your variable declarations here
 Spaceship ship;
 Star[] stars;
-Asteroid a;
+ArrayList<Asteroid> asteroids;
 public void setup() 
 {
   //your code here
@@ -9,10 +9,13 @@ public void setup()
   background(0);
   ship = new Spaceship();
   stars = new Star[100];
+  asteroids = new ArrayList<Asteroid>();
   for(int i=0;i<stars.length;i++) {
   	stars[i] = new Star();
   }
-  a = new Asteroid();
+  for(int i=0;i<3;i++) {
+    asteroids.add(new Asteroid());
+  }
 }
 public void draw() 
 {
@@ -23,8 +26,10 @@ public void draw()
   showStars();
   text("" + ship.getDirectionX(), 10, 10);
   text("" + ship.getDirectionY(), 10, 20);
-  a.move();
-  a.show();
+  for(int i=0;i<asteroids.size();i++) {
+    asteroids.get(i).move();
+    asteroids.get(i).show();
+  }
 }
 
 public void showStars() {
@@ -46,6 +51,8 @@ public void keyPressed() {
   	// go to hyperspace
   	ship.setX((int)(Math.random()*width));
   	ship.setY((int)(Math.random()*height));
+    ship.setDirectionX(0);
+    ship.setDirectionY(0);
   }
 }
 
