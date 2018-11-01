@@ -21,21 +21,56 @@ public void draw()
 {
   //your code here
   background(0);
+  showShip();
+  showStars();
+  showText();
+  showAsteroids();
+  checkCollision();
+}
+public void showShip() {
   ship.move();
   ship.show();
-  showStars();
+}
+public void showText() {
   text("" + ship.getDirectionX(), 10, 10);
   text("" + ship.getDirectionY(), 10, 20);
+}
+public void showAsteroids() {
   for(int i=0;i<asteroids.size();i++) {
     asteroids.get(i).move();
     asteroids.get(i).show();
   }
 }
-
 public void showStars() {
 	for(int i=0;i<stars.length;i++) {
 		stars[i].show();
 	}
+}
+public void checkCollision() {
+  for(int i=0;i<asteroids.size();i++) {
+    Asteroid tempAsteroid = asteroids.get(i);
+    float asteroidX = tempAsteroid.getX();
+    float asteroidY = tempAsteroid.getY();
+    float playerX = ship.getX();
+    float playerY = ship.getY();
+    if(dist(asteroidX, asteroidY, playerX, playerY) < tempAsteroid.getSize()) {
+      breakAsteroid(tempAsteroid, i);
+    }
+  }
+}
+public void breakAsteroid(Asteroid tempAsteroid, int i) {
+  if(tempAsteroid.getHealth() >= 1) {
+    println("here: "+i);
+    asteroids.remove(i);
+    for(int k=0;k<2;k++) {
+      Asteroid a = new Asteroid(tempAsteroid.getHealth() - 1);
+      a.setX(tempAsteroid.getX() + int(random(-5, 5)));
+      a.setY(tempAsteroid.getY() + int(random(-5, 5)));
+      asteroids.add(a);
+    }
+  } else {
+    asteroids.remove(i);
+  }
 }
 public void keyPressed() {
   if(key == 'w') {
