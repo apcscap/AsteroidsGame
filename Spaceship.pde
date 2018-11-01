@@ -37,20 +37,27 @@ class Spaceship extends Floater
 	public void accelerate (double dAmount) {          
 		//convert the current direction the floater is pointing to radians    
 		double dRadians = myPointDirection*(Math.PI/180);  
-		//change coordinates of direction of travel
+		//change coordinates of the direction of travel
 		if(myDirectionX < 5 && myDirectionX >= 0) {
+			// if the speed in the x direction is still less than the max acceleration
 			myDirectionX += ((dAmount) * Math.cos(dRadians)); 
 		} else if(myDirectionX > 0){
+			// just to check  if the speed in the x direction is going to the right ->
 			if((dAmount * Math.cos(dRadians)) < 0) {
+				// only add to the x direction if the ship is moving to the left <-
 				myDirectionX += ((dAmount) * Math.cos(dRadians));
 			}
 		} else if(myDirectionX > -5 && myDirectionX <= 0) {
+			// checking if the direction is less then the max acceleration to the left
 			myDirectionX += ((dAmount) * Math.cos(dRadians));
 		} else if(myDirectionX < 0) {
+			// if the ship is moving in the opposite direction
 			if((dAmount * Math.cos(dRadians)) > 0) {
+				// then move the ship in the opposite direction-to the right.->
 				myDirectionX += ((dAmount) * Math.cos(dRadians));
 			}
 		}
+		// same rules apply to the direction y from the x
 		if(myDirectionY < 5 && myDirectionY >= 0) {
 			myDirectionY += ((dAmount) * Math.sin(dRadians)); 
 		} else if(myDirectionY > 0){
