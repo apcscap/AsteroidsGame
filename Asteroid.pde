@@ -9,8 +9,8 @@ class Asteroid extends Floater {
     xCorners = new int[] {(-4*s),(-2*s),(0*s),(0*s),(2*s),(3*s), (2*s), (-2*s), (-3*s), (-1*s), (-4*s)};
     yCorners = new int[] {(2*s),(4*s),(2*s),(4*s),(3*s),(1*s), (-2*s), (-2*s), (0*s), (1*s), (2*s)};
     myColor = 255;
-    myCenterX = (int)(Math.random()*500);
-    myCenterY = (int)(Math.random()*500);
+    myCenterX = (int)(Math.random()*width);
+    myCenterY = (int)(Math.random()*height);
     myDirectionX = (Math.random()*4)-2;
     myDirectionY = (Math.random()*4)-2;
     myPointDirection = Math.random()*360;
@@ -23,8 +23,8 @@ class Asteroid extends Floater {
     xCorners = new int[] {(-4*s),(-2*s),(0*s),(0*s),(2*s),(3*s), (2*s), (-2*s), (-3*s), (-1*s), (-4*s)};
     yCorners = new int[] {(2*s),(4*s),(2*s),(4*s),(3*s),(1*s), (-2*s), (-2*s), (0*s), (1*s), (2*s)};
     myColor = 255;
-    myCenterX = (int)(Math.random()*500);
-    myCenterY = (int)(Math.random()*500);
+    myCenterX = (int)(Math.random()*width);
+    myCenterY = (int)(Math.random()*height);
     myDirectionX = (Math.random()*4)-2;
     myDirectionY = (Math.random()*4)-2;
     myPointDirection = Math.random()*360;

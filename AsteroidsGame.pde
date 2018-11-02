@@ -59,7 +59,7 @@ public void checkCollision() {
   }
 }
 public void breakAsteroid(Asteroid tempAsteroid, int i) {
-  if(tempAsteroid.getHealth() > 2) {
+  if(tempAsteroid.getHealth() > 1) {
     asteroids.remove(i);
     for(int k=0;k<2;k++) {
       Asteroid a = new Asteroid(tempAsteroid.getHealth()-1);
