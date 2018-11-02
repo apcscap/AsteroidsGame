@@ -2,6 +2,7 @@
 Spaceship ship;
 Star[] stars;
 ArrayList<Asteroid> asteroids;
+ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 public void setup() 
 {
   //your code here
@@ -21,6 +22,7 @@ public void draw()
 {
   //your code here
   background(0);
+  showBullets();
   showShip();
   showStars();
   showText();
@@ -34,6 +36,16 @@ public void showShip() {
 public void showText() {
   text("" + ship.getDirectionX(), 10, 10);
   text("" + ship.getDirectionY(), 10, 20);
+}
+public void showBullets() {
+  for(int i=0;i<bullets.size();i++) {
+    if(bullets.get(i).getX() < 0 || bullets.get(i).getX() > width || bullets.get(i).getY() < 0 || bullets.get(i).getY() > height) {
+      bullets.remove(i);
+      continue;
+    }
+    bullets.get(i).move();
+    bullets.get(i).show();
+  }
 }
 public void showAsteroids() {
   for(int i=0;i<asteroids.size();i++) {
@@ -93,6 +105,9 @@ public void keyPressed() {
 }
 
 public void keyReleased() {
+  if(key == ' ') {
+    bullets.add(new Bullet(ship));
+  }
   if(key == 'w') {
     ship.setMove(false);
   }
