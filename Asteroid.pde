@@ -1,5 +1,5 @@
 class Asteroid extends Floater {
-  private int myHealth = 3;
+  private int myHealth;
   private double myTurnDirection;
   private int s;
   Asteroid(int health) {

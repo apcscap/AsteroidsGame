@@ -59,12 +59,10 @@ public void checkCollision() {
   }
 }
 public void breakAsteroid(Asteroid tempAsteroid, int i) {
-  if(tempAsteroid.getHealth() >= 1) {
-    println("here: "+i);
-    println("health: "+tempAsteroid.getHealth());
+  if(tempAsteroid.getHealth() > 2) {
     asteroids.remove(i);
     for(int k=0;k<2;k++) {
-      Asteroid a = new Asteroid(tempAsteroid.getHealth() - 1);
+      Asteroid a = new Asteroid(tempAsteroid.getHealth()-1);
       a.setX(tempAsteroid.getX() + int(random(-5, 5)));
       a.setY(tempAsteroid.getY() + int(random(-5, 5)));
       asteroids.add(a);
@@ -72,6 +70,8 @@ public void breakAsteroid(Asteroid tempAsteroid, int i) {
   } else {
     asteroids.remove(i);
   }
+  println(asteroids.size());
+
 }
 public void keyPressed() {
   if(key == 'w') {
