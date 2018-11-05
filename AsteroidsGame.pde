@@ -67,6 +67,14 @@ public void checkCollision() {
     float playerY = ship.getY();
     if(dist(asteroidX, asteroidY, playerX, playerY) < tempAsteroid.getSize()) {
       breakAsteroid(tempAsteroid, i);
+      continue;
+    }
+    for(int j=0;j<bullets.size();j++) {
+      Bullet tempBullet = bullets.get(j);
+      if(dist(asteroidX, asteroidY, tempBullet.getX(), tempBullet.getY()) < tempAsteroid.getSize()) {
+        bullets.remove(j);
+        breakAsteroid(tempAsteroid, i);
+      }
     }
   }
 }
@@ -80,7 +88,9 @@ public void breakAsteroid(Asteroid tempAsteroid, int i) {
       asteroids.add(a);
     }
   } else {
-    asteroids.remove(i);
+    if(i<asteroids.size()) {
+      asteroids.remove(i);
+    }
   }
   println(asteroids.size());
 

@@ -1,6 +1,6 @@
 class Asteroid extends Floater {
   private int myHealth;
-  private double myTurnDirection;
+  private int myTurnSpd;
   private int s;
   Asteroid(int health) {
     myHealth = health;
@@ -14,7 +14,7 @@ class Asteroid extends Floater {
     myDirectionX = (Math.random()*4)-2;
     myDirectionY = (Math.random()*4)-2;
     myPointDirection = Math.random()*360;
-    myTurnDirection = (Math.random()*2)-1;
+    myTurnSpd = (int)(Math.random()*2)-1;
   }
   Asteroid() {
     myHealth = 3;
@@ -28,7 +28,7 @@ class Asteroid extends Floater {
     myDirectionX = (Math.random()*4)-2;
     myDirectionY = (Math.random()*4)-2;
     myPointDirection = Math.random()*360;
-    myTurnDirection = (Math.random()*2)-1;
+    myTurnSpd = (int)(Math.random()*2)-1;
   }
   public void setX(int x) {myCenterX = x;}
   public int getX() {return (int)myCenterX;}
@@ -53,30 +53,7 @@ class Asteroid extends Floater {
     return Math.abs(dist(0, 0, maxX, maxY));
   }
   public void move() {
-    //change the x and y coordinates by myDirectionX and myDirectionY       
-    myCenterX += myDirectionX;    
-    myCenterY += myDirectionY;     
-  
-    // make the asteroid turn
-    myPointDirection += myTurnDirection;
-    
-    //wrap around screen    
-    if(myCenterX > width)
-    {     
-      myCenterX = 0;    
-    }    
-    else if (myCenterX<0)
-    {     
-      myCenterX = width;    
-    }    
-    if(myCenterY >height)
-    {    
-      myCenterY = 0;    
-    } 
-    
-    else if (myCenterY < 0)
-    {     
-      myCenterY = height;    
-    }
+    turn(myTurnSpd);
+    super.move();
   }
 }
