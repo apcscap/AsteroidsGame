@@ -3,6 +3,8 @@ Spaceship ship;
 Star[] stars;
 ArrayList<Asteroid> asteroids;
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
+ArrayList<Tracker> tracker = new ArrayList<Tracker>();
+
 public void setup() 
 {
   //your code here
