@@ -11,11 +11,6 @@ class Tracker extends Bullet {
   }
   public Asteroid getTarget() {return prey;}
   public void setTracking(Asteroid a) {prey = a;}
-  public void show() {
-    fill(myColor);
-    stroke(myColor);
-    ellipse((float) myCenterX, (float) myCenterY, 5, 5);
-  }
   public void move() {
     double deltaX = prey.getX() - myCenterX;
     double deltaY = prey.getY() - myCenterY;

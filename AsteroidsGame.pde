@@ -30,7 +30,6 @@ public void draw()
   showText();
   showAsteroids();
   checkCollision();
-  println(bullets.size());
 }
 public void showShip() {
   ship.move();
