@@ -3,7 +3,7 @@ Spaceship ship;
 Star[] stars;
 ArrayList<Asteroid> asteroids;
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
-ArrayList<Tracker> tracker = new ArrayList<Tracker>();
+// ArrayList<Tracker> trackers = new ArrayList<Tracker>();
 
 public void setup() 
 {
@@ -22,7 +22,7 @@ public void setup()
 }
 public void draw() 
 {
-  //your code here
+  // main draw loop
   background(0);
   showBullets();
   showShip();
@@ -30,6 +30,7 @@ public void draw()
   showText();
   showAsteroids();
   checkCollision();
+  println(bullets.size());
 }
 public void showShip() {
   ship.move();
@@ -94,8 +95,6 @@ public void breakAsteroid(Asteroid tempAsteroid, int i) {
       asteroids.remove(i);
     }
   }
-  println(asteroids.size());
-
 }
 public void keyPressed() {
   if(key == 'w') {
@@ -119,6 +118,14 @@ public void keyPressed() {
 public void keyReleased() {
   if(key == ' ') {
     bullets.add(new Bullet(ship));
+  }
+  if(key == 'g') {
+    if(asteroids.size() > 0)
+    for(int i=0;i<1;i++) {
+      Tracker t = new Tracker(ship);
+      t.setTracking(asteroids.get((int)(Math.random()*asteroids.size())));
+      bullets.add(t);
+    }
   }
   if(key == 'w') {
     ship.setMove(false);

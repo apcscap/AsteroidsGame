@@ -1,5 +1,5 @@
-class Tracker extends Floater {
-  int myTracker;
+class Tracker extends Bullet {
+  Asteroid prey;
   Tracker(Spaceship ship) {
     myColor  = color(255,131,0);
     myCenterX = ship.getX();
@@ -9,30 +9,20 @@ class Tracker extends Floater {
     myDirectionX = 5 * Math.cos(dRadians) + ship.getDirectionX();
     myDirectionY = 5 * Math.sin(dRadians) + ship.getDirectionY();
   }
-  public void setX(int x) {myCenterX = x;}
-  public int getX() {return (int)myCenterX;}
-  public void setY(int y) {myCenterY = y;}
-  public int getY() {return (int)myCenterY;}
-  public void setDirectionX(double x) {myDirectionX = x;}   
-  public double getDirectionX() {return (double)myDirectionX;}   
-  public void setDirectionY(double y) {myDirectionY = y;}   
-  public double getDirectionY() {return (double)myDirectionY;}
-  public void setPointDirection(int degrees) {myPointDirection = degrees;} 
-  public double getPointDirection() {return (double)myPointDirection;}
-  public int getTarget() {return myTracker;}
-  public void setTracking(int i) {myTracker = i;}
+  public Asteroid getTarget() {return prey;}
+  public void setTracking(Asteroid a) {prey = a;}
   public void show() {
     fill(myColor);
     stroke(myColor);
     ellipse((float) myCenterX, (float) myCenterY, 5, 5);
   }
-  public void move(Asteroid a) {
-    double deltaX = a.getX() - myCenterX;
-    double deltaY = a.getY() - myCenterY;
+  public void move() {
+    double deltaX = prey.getX() - myCenterX;
+    double deltaY = prey.getY() - myCenterY;
     myPointDirection = Math.atan2(deltaY, deltaX);
     double dRadians = myPointDirection; //* (Math.PI/180);
-    myDirectionX += 7 * Math.cos(dRadians);
-    myDirectionY += 7 * Math.sin(dRadians);
+    myDirectionX += 1 * Math.cos(dRadians);
+    myDirectionY += 1 * Math.sin(dRadians);
     
     myCenterX += myDirectionX;
     myCenterY += myDirectionY;
