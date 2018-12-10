@@ -1,6 +1,6 @@
 class Tracker extends Bullet {
-  Asteroid prey;
-  Tracker(Spaceship ship) {
+  private Asteroid prey;
+  public Tracker(Spaceship ship) {
     myColor  = color(255,131,0);
     myCenterX = ship.getX();
     myCenterY = ship.getY();
