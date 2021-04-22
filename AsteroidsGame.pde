@@ -8,7 +8,7 @@ ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 public void setup() 
 {
   //your code here
-  size(500,500);
+  size(1000,500);
   background(0);
   ship = new Spaceship();
   stars = new Star[100];
