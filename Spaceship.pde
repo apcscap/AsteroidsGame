@@ -71,5 +71,12 @@ class Spaceship extends Floater
 				myDirectionY += ((dAmount) * Math.sin(dRadians));
 			}
 		}
-	}   	
+	}
+  public void show() {
+    super.show();
+    
+    PImage rickimg = loadImage("tomster.png");
+    float imgsize = 69;
+    image(rickimg, (float)myCenterX- imgsize/2, (float)myCenterY - imgsize/2, imgsize, imgsize);
+  }
 }
