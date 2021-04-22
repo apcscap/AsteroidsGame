@@ -44,21 +44,24 @@ class Asteroid extends Floater {
   public void setHealth(int health) {this.myHealth = health;}
   public void setColor() {myColor = color(0,255,0);}
   public float getSize() {
-    int maxX = 0;
-    int maxY = 0;
-    for(int i=0;i<corners;i++) {
-      if(xCorners[i] > maxX) maxX = xCorners[i];
-      if(yCorners[i] > maxY) maxY = yCorners[i];
-    }
-    return Math.abs(dist(0, 0, maxX, maxY));
+    //int maxX = 0;
+    //int maxY = 0;
+    //for(int i=0;i<corners;i++) {
+    //  if(xCorners[i] > maxX) maxX = xCorners[i];
+    //  if(yCorners[i] > maxY) maxY = yCorners[i];
+    //}
+    //return Math.abs(dist(0, 0, maxX, maxY));
+    return 25*myHealth;
   }
   public void move() {
     turn(myTurnSpd);
     super.move();
   }
   public void show() {
-    super.show();
-    PImage tomsterimg = loadImage("tomster.png");
-    PImage rickimg = loadImage("rick.jpeg");
-    image(tomsterimg, myCenterX, myCenterY, 50.0, 50.0);
+    //super.show();
+    
+    PImage rickimg = loadImage("rick.jpg");
+    float imgsize = getSize();
+    image(rickimg, (float)myCenterX- imgsize/2, (float)myCenterY - imgsize/2, imgsize, imgsize);
+  }
 }
