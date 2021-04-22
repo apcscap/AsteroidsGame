@@ -10,6 +10,10 @@ public void setup()
   //your code here
   size(1000,500);
   background(0);
+  
+  tomsterimg = loadImage('tomster.png');
+  rickimg = loadImage('rick.jpeg');
+  
   ship = new Spaceship();
   stars = new Star[100];
   asteroids = new ArrayList<Asteroid>();
