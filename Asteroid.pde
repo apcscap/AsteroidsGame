@@ -56,4 +56,9 @@ class Asteroid extends Floater {
     turn(myTurnSpd);
     super.move();
   }
+  public void show() {
+    super.show();
+    PImage tomsterimg = loadImage('tomster.png');
+    PImage rickimg = loadImage('rick.jpeg');
+    img(tom, myCenterX, myCentery, 50, 50);
 }
