@@ -57,10 +57,11 @@ class Asteroid extends Floater {
     turn(myTurnSpd);
     super.move();
   }
+  PImage rickimg = loadImage("https://raw.githubusercontent.com/apcscap/AsteroidsGame/master/rick.jpg");
+
   public void show() {
     //super.show();
     
-    PImage rickimg = loadImage("rick.jpg");
     float imgsize = getSize();
     image(rickimg, (float)myCenterX- imgsize/2, (float)myCenterY - imgsize/2, imgsize, imgsize);
   }
