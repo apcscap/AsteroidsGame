@@ -60,5 +60,5 @@ class Asteroid extends Floater {
     super.show();
     PImage tomsterimg = loadImage('tomster.png');
     PImage rickimg = loadImage('rick.jpeg');
-    img(tom, myCenterX, myCentery, 50, 50);
+    img(tom, myCenterX, myCenterY, 50, 50);
 }
