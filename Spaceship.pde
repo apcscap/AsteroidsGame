@@ -72,7 +72,7 @@ class Spaceship extends Floater
 			}
 		}
 	}
-  PImage tomster = loadImage("https://raw.githubusercontent.com/apcscap/AsteroidsGame/master/tomster.png", "png");
+  PImage tomster = loadImage("https://raw.githubusercontent.com/apcscap/AsteroidsGame/master/tomster.png");
   
   public void show() {
     //super.show();
